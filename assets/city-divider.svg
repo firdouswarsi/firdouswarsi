@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 40" width="100%" height="40" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="div-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#a855f7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="div-glow" x="-20%" y="-100%" width="140%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Isometric Step Path -->
+  <path d="M 0,20 L 400,20 L 450,10 L 750,10 L 800,20 L 1200,20" fill="none" stroke="url(#div-grad)" stroke-width="2" filter="url(#div-glow)"/>
+  
+  <!-- Central Tech Diamond -->
+  <polygon points="600,4 608,10 600,16 592,10" fill="#38bdf8" filter="url(#div-glow)"/>
+</svg>

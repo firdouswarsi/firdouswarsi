@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="300">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="header-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <!-- Accent Line Gradient -->
+    <linearGradient id="accent-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="40%" stop-color="#818cf8"/>
+      <stop offset="70%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="hdr-grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-opacity="0.3" stroke-width="0.8"/>
+    </pattern>
+
+    <filter id="hdr-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulse-live {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+    .live-dot { transform-origin: 35px 35px; animation: pulse-live 2s infinite ease-in-out; }
+    .font-sans { font-family: 'Inter', -apple-system, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="300" rx="16" fill="url(#header-grad)"/>
+  <rect width="1200" height="300" rx="16" fill="url(#hdr-grid)"/>
+
+  <!-- Top Accent Neon Bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent-bar)"/>
+
+  <!-- Top Left Status HUD -->
+  <g transform="translate(45, 30)">
+    <circle class="live-dot" cx="0" cy="5" r="5" fill="#10b981" filter="url(#hdr-glow)"/>
+    <text class="font-mono" x="14" y="9" font-size="11" font-weight="700" fill="#10b981" letter-spacing="1.5">
+      SYSTEM ONLINE // DEVOPS ORCHESTRATION CITY ACTIVE
+    </text>
+  </g>
+
+  <!-- Top Right Clearance Tag -->
+  <g transform="translate(980, 24)">
+    <rect x="0" y="0" width="175" height="26" rx="13" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+    <text class="font-mono" x="87" y="17" text-anchor="middle" font-size="10.5" font-weight="700" fill="#38bdf8" letter-spacing="1">
+      FIRDOUS WARSI // v3.0
+    </text>
+  </g>
+
+  <!-- Main Hero Greeting & Name -->
+  <g transform="translate(45, 95)">
+    <!-- Sub-greeting -->
+    <text class="font-mono" x="0" y="0" font-size="16" font-weight="600" fill="#94a3b8">
+      Hi there, I'm
+    </text>
+    
+    <!-- Big Bold Name -->
+    <text class="font-sans" x="0" y="52" font-size="52" font-weight="900" fill="#f8fafc" letter-spacing="1">
+      Firdous Warsi
+    </text>
+    <text class="font-sans" x="375" y="52" font-size="44" fill="#38bdf8">
+      👋
+    </text>
+
+    <!-- Role Tagline -->
+    <g transform="translate(0, 80)">
+      <rect x="0" y="0" width="230" height="30" rx="6" fill="#0284c7" fill-opacity="0.25" stroke="#38bdf8" stroke-width="1.2"/>
+      <text class="font-mono" x="12" y="20" font-size="13" font-weight="800" fill="#38bdf8">
+        ☁️ DEVOPS ENGINEER
+      </text>
+
+      <text class="font-sans" x="245" y="20" font-size="14.5" font-weight="600" fill="#cbd5e1">
+        Specializing in Microsoft Azure Cloud &amp; Terraform Infrastructure as Code
+      </text>
+    </g>
+
+    <!-- Location & Experience Pills -->
+    <g transform="translate(0, 130)">
+      <!-- Pill 1: Experience from Resume -->
+      <rect x="0" y="0" width="165" height="26" rx="13" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text class="font-mono" x="12" y="17" font-size="11" font-weight="600" fill="#f8fafc">
+        ⚡ 3+ Years Experience
+      </text>
+
+      <!-- Pill 2: Current Company from Resume -->
+      <rect x="175" y="0" width="220" height="26" rx="13" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text class="font-mono" x="187" y="17" font-size="11" font-weight="600" fill="#a855f7">
+        🏢 Ansh Roof and Services
+      </text>
+
+      <!-- Pill 3: Location from Resume -->
+      <rect x="405" y="0" width="180" height="26" rx="13" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text class="font-mono" x="417" y="17" font-size="11" font-weight="600" fill="#38bdf8">
+        📍 Howrah, WB, India
+      </text>
+    </g>
+  </g>
+
+  <!-- Right Decorative Isometric City Hologram -->
+  <g transform="translate(860, 60)">
+    <!-- Holographic Isometric Tower Silhouette -->
+    <!-- Central Tower -->
+    <polygon points="120,40 160,60 120,80 80,60" fill="#38bdf8" fill-opacity="0.6"/>
+    <polygon points="80,60 120,80 120,180 80,160" fill="#0284c7" fill-opacity="0.5"/>
+    <polygon points="120,80 160,60 160,160 120,180" fill="#0369a1" fill-opacity="0.5"/>
+    <!-- Spire -->
+    <line x1="120" y1="40" x2="120" y2="10" stroke="#38bdf8" stroke-width="2.5" filter="url(#hdr-glow)"/>
+    <circle cx="120" cy="8" r="4" fill="#38bdf8" filter="url(#hdr-glow)"/>
+
+    <!-- Left Building (Terraform) -->
+    <polygon points="50,110 80,125 50,140 20,125" fill="#c084fc" fill-opacity="0.5"/>
+    <polygon points="20,125 50,140 50,190 20,175" fill="#7e22ce" fill-opacity="0.4"/>
+    <polygon points="50,140 80,125 80,175 50,190" fill="#6b21a8" fill-opacity="0.4"/>
+
+    <!-- Right Building (K8s / Linux) -->
+    <polygon points="190,100 220,115 190,130 160,115" fill="#60a5fa" fill-opacity="0.5"/>
+    <polygon points="160,115 190,130 190,185 160,170" fill="#2563eb" fill-opacity="0.4"/>
+    <polygon points="190,130 220,115 220,170 190,185" fill="#1d4ed8" fill-opacity="0.4"/>
+
+    <!-- Data streams linking hologram buildings -->
+    <path d="M 50,120 Q 120,80 190,110" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4" filter="url(#hdr-glow)"/>
+    <ellipse cx="120" cy="190" rx="100" ry="25" fill="none" stroke="#334155" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom Smooth Waving Gradient Trim -->
+  <path d="M 0,285 Q 300,270 600,285 T 1200,285 L 1200,300 L 0,300 Z" fill="#0f172a"/>
+  <path d="M 0,285 Q 300,270 600,285 T 1200,285" fill="none" stroke="url(#accent-bar)" stroke-width="2"/>
+</svg>

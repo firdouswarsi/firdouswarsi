@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 620" width="100%" height="620">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="card-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#0f172a" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Holographic Border Gradient -->
+    <linearGradient id="holo-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="35%" stop-color="#a855f7"/>
+      <stop offset="70%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+
+    <!-- Lanyard Gradient -->
+    <linearGradient id="lanyard-ribbon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+
+    <!-- Filter Glow -->
+    <filter id="badge-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    .font-sans { font-family: 'Inter', -apple-system, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+  </style>
+
+  <!-- ═════════ LANYARD STRAP & CLIP ═════════ -->
+  <!-- Top Ribbon hanging down -->
+  <path d="M 195,0 L 210,65 L 250,65 L 265,0 Z" fill="url(#lanyard-ribbon)"/>
+  <!-- Metallic Ring / Clip -->
+  <rect x="215" y="60" width="30" height="15" rx="3" fill="#64748b" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="222" y="73" width="16" height="18" rx="2" fill="#334155" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Badge Slot Hole in Card -->
+  <rect x="200" y="105" width="60" height="10" rx="5" fill="#020617" stroke="#334155" stroke-width="1"/>
+
+  <!-- ═════════ MAIN BADGE CARD ═════════ -->
+  <g transform="translate(20, 90)">
+    <!-- Shadow Base -->
+    <rect x="2" y="2" width="416" height="516" rx="20" fill="none" stroke="url(#holo-border)" stroke-width="2.5" filter="url(#badge-glow)"/>
+    <rect x="2" y="2" width="416" height="516" rx="20" fill="url(#card-glass)"/>
+
+    <!-- Header Banner -->
+    <rect x="2" y="2" width="416" height="60" rx="20" fill="#0f172a"/>
+    <rect x="2" y="45" width="416" height="20" fill="#0f172a"/>
+    <line x1="2" y1="65" x2="418" y2="65" stroke="#334155" stroke-width="1"/>
+
+    <!-- Header Text -->
+    <text class="font-mono" x="25" y="40" font-size="11" font-weight="700" fill="#38bdf8" letter-spacing="1.5">
+      DEVELOPER ID // ACCESS: LEVEL 3
+    </text>
+    <circle cx="385" cy="36" r="4" fill="#10b981" filter="url(#badge-glow)"/>
+    <text class="font-mono" x="375" y="40" text-anchor="end" font-size="10" font-weight="700" fill="#10b981">
+      ACTIVE
+    </text>
+
+    <!-- Photo Avatar Frame -->
+    <g transform="translate(30, 85)">
+      <!-- Avatar Box -->
+      <rect x="0" y="0" width="115" height="135" rx="12" fill="#020617" stroke="#38bdf8" stroke-width="2"/>
+      
+      <!-- Tech Avatar Vector Graphic -->
+      <circle cx="57.5" cy="50" r="26" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2"/>
+      <!-- Head and Shoulders Silhouette -->
+      <circle cx="57.5" cy="46" r="14" fill="#38bdf8"/>
+      <path d="M 35,95 Q 57.5,70 80,95 Z" fill="#38bdf8"/>
+      <!-- Glowing DevOps Hologram Overlay -->
+      <rect x="10" y="110" width="95" height="16" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <text class="font-mono" x="57.5" y="122" text-anchor="middle" font-size="9" font-weight="700" fill="#10b981">
+        VERIFIED
+      </text>
+    </g>
+
+    <!-- Primary Identity Fields -->
+    <g transform="translate(165, 95)">
+      <text class="font-sans" x="0" y="18" font-size="22" font-weight="800" fill="#f8fafc" letter-spacing="0.5">
+        Firdous Warsi
+      </text>
+      <text class="font-mono" x="0" y="38" font-size="13" font-weight="700" fill="#38bdf8">
+        DEVOPS ENGINEER
+      </text>
+      
+      <!-- Company from Resume -->
+      <rect x="0" y="48" width="220" height="22" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text class="font-sans" x="8" y="63" font-size="10.5" font-weight="600" fill="#cbd5e1">
+        🏢 Ansh Roof and Services
+      </text>
+
+      <!-- Location from Resume -->
+      <text class="font-mono" x="0" y="90" font-size="10.5" font-weight="500" fill="#94a3b8">
+        📍 Howrah, West Bengal, India
+      </text>
+      <text class="font-mono" x="0" y="108" font-size="10.5" font-weight="500" fill="#94a3b8">
+        🆔 ID: FW-DEVOPS-2026
+      </text>
+      <text class="font-mono" x="0" y="126" font-size="10.5" font-weight="600" fill="#10b981">
+        ⚡ Exp: 3+ Years in Production
+      </text>
+    </g>
+
+    <!-- Horizontal Divider -->
+    <line x1="25" y1="235" x2="395" y2="235" stroke="#1e293b" stroke-width="1.5"/>
+
+    <!-- Core Competency Matrix -->
+    <g transform="translate(30, 250)">
+      <text class="font-mono" x="0" y="12" font-size="11" font-weight="700" fill="#a855f7" letter-spacing="1">
+        CORE COMPETENCIES // RESUME VERIFIED
+      </text>
+
+      <!-- Row 1: Primary Skills -->
+      <g transform="translate(0, 24)">
+        <rect x="0" y="0" width="175" height="32" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+        <text class="font-sans" x="10" y="15" font-size="11" font-weight="700" fill="#38bdf8">☁️ Microsoft Azure</text>
+        <text class="font-mono" x="10" y="26" font-size="8.5" font-weight="600" fill="#94a3b8">ADVANCED ARCHITECTURE</text>
+
+        <rect x="185" y="0" width="175" height="32" rx="6" fill="#0f172a" stroke="#844fba" stroke-width="1"/>
+        <text class="font-sans" x="195" y="15" font-size="11" font-weight="700" fill="#c084fc">⚡ Terraform IaC</text>
+        <text class="font-mono" x="195" y="26" font-size="8.5" font-weight="600" fill="#94a3b8">MODULES &amp; STATE LOCKING</text>
+      </g>
+
+      <!-- Row 2: CI/CD & Containers -->
+      <g transform="translate(0, 64)">
+        <rect x="0" y="0" width="175" height="32" rx="6" fill="#0f172a" stroke="#0078d7" stroke-width="1"/>
+        <text class="font-sans" x="10" y="15" font-size="11" font-weight="700" fill="#60a5fa">🔄 Azure DevOps &amp; CI/CD</text>
+        <text class="font-mono" x="10" y="26" font-size="8.5" font-weight="600" fill="#94a3b8">FULL AUTOMATION PIPELINE</text>
+
+        <rect x="185" y="0" width="175" height="32" rx="6" fill="#0f172a" stroke="#326ce5" stroke-width="1"/>
+        <text class="font-sans" x="195" y="15" font-size="11" font-weight="700" fill="#93c5fd">☸️ Docker &amp; AKS</text>
+        <text class="font-mono" x="195" y="26" font-size="8.5" font-weight="600" fill="#94a3b8">CONTAINER PROVISIONING</text>
+      </g>
+
+      <!-- Row 3: DevSecOps & Monitoring -->
+      <g transform="translate(0, 104)">
+        <rect x="0" y="0" width="175" height="32" rx="6" fill="#0f172a" stroke="#00c7b7" stroke-width="1"/>
+        <text class="font-sans" x="10" y="15" font-size="11" font-weight="700" fill="#00c7b7">🛡️ SonarQube &amp; Trivy</text>
+        <text class="font-mono" x="10" y="26" font-size="8.5" font-weight="600" fill="#94a3b8">AUTOMATED SECURITY GATES</text>
+
+        <rect x="185" y="0" width="175" height="32" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+        <text class="font-sans" x="195" y="15" font-size="11" font-weight="700" fill="#38bdf8">📡 Azure Monitor &amp; Linux</text>
+        <text class="font-mono" x="195" y="26" font-size="8.5" font-weight="600" fill="#94a3b8">OBSERVABILITY &amp; SERVERS</text>
+      </g>
+    </g>
+
+    <!-- Security Chip & Barcode Section -->
+    <g transform="translate(30, 410)">
+      <!-- Gold EMV Chip Simulation -->
+      <rect x="0" y="8" width="42" height="32" rx="5" fill="#facc15" stroke="#ca8a04" stroke-width="1.2"/>
+      <path d="M 0,20 L 42,20 M 21,8 L 21,40 M 12,8 L 12,40 M 30,8 L 30,40" stroke="#ca8a04" stroke-width="0.8"/>
+
+      <!-- Barcode Simulation -->
+      <g transform="translate(60, 8)">
+        <rect x="0" y="0" width="3" height="32" fill="#e2e8f0"/>
+        <rect x="5" y="0" width="1.5" height="32" fill="#e2e8f0"/>
+        <rect x="9" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="16" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="20" y="0" width="1" height="32" fill="#e2e8f0"/>
+        <rect x="23" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="31" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="35" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="42" y="0" width="1" height="32" fill="#e2e8f0"/>
+        <rect x="46" y="0" width="3" height="32" fill="#e2e8f0"/>
+        <rect x="51" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="58" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="63" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="70" y="0" width="1" height="32" fill="#e2e8f0"/>
+        <rect x="74" y="0" width="3" height="32" fill="#e2e8f0"/>
+        <rect x="80" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="88" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="92" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="99" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="104" y="0" width="6" height="32" fill="#e2e8f0"/>
+        <rect x="113" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="118" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="125" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="130" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="138" y="0" width="1.5" height="32" fill="#e2e8f0"/>
+        <rect x="142" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="149" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="154" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="162" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="167" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="174" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="179" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="187" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="192" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="199" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="204" y="0" width="6" height="32" fill="#e2e8f0"/>
+        <rect x="213" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="218" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="225" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="230" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="238" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="243" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="250" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="255" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="263" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="268" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <rect x="275" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="280" y="0" width="5" height="32" fill="#e2e8f0"/>
+        <rect x="288" y="0" width="2" height="32" fill="#e2e8f0"/>
+        <rect x="293" y="0" width="4" height="32" fill="#e2e8f0"/>
+        <text class="font-mono" x="145" y="44" text-anchor="middle" font-size="8.5" fill="#94a3b8" letter-spacing="2">
+          *FW-89204-DEVOPS-2026*
+        </text>
+      </g>
+    </g>
+
+    <!-- Bottom Security Watermark -->
+    <text class="font-mono" x="210" y="495" text-anchor="middle" font-size="9" font-weight="600" fill="#64748b" letter-spacing="1">
+      AUTHENTICATED // ZERO-DOWNTIME PRODUCTION INFRASTRUCTURE
+    </text>
+  </g>
+</svg>

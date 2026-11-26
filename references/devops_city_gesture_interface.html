@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DevOps City — Gesture Interface</title>
+<style>
+:root{--cyan:#35d9ff;--blue:#167cff;--bg:#030817;--panel:rgba(5,24,58,.82)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 55% 45%,#092c69 0,#06132e 42%,#020611 100%);color:#eaf8ff;font-family:Inter,system-ui,Arial;min-height:100vh;overflow:hidden}
+header{position:absolute;z-index:3;top:18px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-size:clamp(18px,3vw,30px);font-weight:800;letter-spacing:.04em;text-shadow:0 0 18px var(--cyan)}.brand span{color:var(--cyan)}
+.status{font-size:12px;color:#9edfff;border:1px solid #167cff88;border-radius:30px;padding:9px 13px;background:#04152c}
+main{height:100vh;display:grid;place-items:center;padding:85px 18px 70px}
+.screen{position:relative;width:min(1100px,96vw);height:min(650px,78vh);min-height:440px;border:1px solid #39cfff;border-radius:24px;background:linear-gradient(145deg,rgba(9,37,83,.84),rgba(2,9,27,.91));box-shadow:0 0 25px #078bff88,inset 0 0 35px #0a6dff22;overflow:hidden}
+.screen:before{content:"";position:absolute;inset:12px;border:1px solid #46caff44;border-radius:17px;pointer-events:none}
+.topline{display:flex;justify-content:space-between;padding:25px 32px 5px;color:#9fdfff;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.content{height:calc(100% - 60px);display:grid;grid-template-columns:1fr 1.25fr;align-items:center;padding:10px 6%;gap:24px}
+h1{font-size:clamp(34px,6vw,66px);line-height:1;margin:0 0 15px;color:white;text-shadow:0 0 22px #20aaff}
+.sub{color:#a9d8ff;font-size:clamp(14px,2vw,19px);line-height:1.5}
+.tag{display:inline-block;margin-top:22px;border:1px solid #28caff;border-radius:20px;padding:9px 14px;color:#8feaff;font-size:12px}
+.visual{height:80%;min-height:260px;display:grid;place-items:center;position:relative}
+.core{width:min(290px,65vw);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;border:2px solid #38d8ff;box-shadow:0 0 25px #087dff,inset 0 0 35px #087dff55;position:relative;background:radial-gradient(circle,#1259a7aa,#06142d 65%)}
+.core:before,.core:after{content:"";position:absolute;border:1px solid #34d5ff88;border-radius:50%;inset:-22px;transform:rotateX(68deg);box-shadow:0 0 15px #009dff}.core:after{inset:-45px;transform:rotateX(68deg) rotate(35deg)}
+.symbol{font-size:clamp(58px,9vw,100px);filter:drop-shadow(0 0 15px #29caff)}
+.tiles{position:absolute;bottom:24px;left:24px;right:24px;display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+.tile{border:1px solid #2baeff88;background:#061a38d9;border-radius:12px;padding:12px 5px;text-align:center;color:#bfeaff;font-size:12px;cursor:pointer;transition:.2s}
+.tile b{display:block;font-size:22px;margin-bottom:5px}.tile.active,.tile:hover{background:#0b4b87;border-color:#57e7ff;box-shadow:0 0 15px #168cff}
+footer{position:absolute;bottom:12px;left:20px;right:20px;text-align:center;color:#83bde2;font-size:12px}
+.controls{position:absolute;z-index:4;right:24px;bottom:44px;display:flex;gap:8px}
+button{background:#082b54;color:#dff8ff;border:1px solid #27bfff;border-radius:22px;padding:10px 15px;font-weight:650;cursor:pointer}
+button:hover{background:#10528c}
+#camera{position:absolute;left:18px;bottom:48px;width:130px;height:94px;object-fit:cover;transform:scaleX(-1);border:1px solid #39cfff;border-radius:12px;opacity:.78;display:none}
+#pointer{position:fixed;width:18px;height:18px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 18px #20dfff;pointer-events:none;z-index:10;display:none}
+@media(max-width:650px){.content{grid-template-columns:1fr;text-align:center;padding:8px 8% 110px;gap:4px}.visual{min-height:130px;height:100%}.core{width:145px}.tiles{grid-template-columns:repeat(5,1fr);bottom:15px;left:12px;right:12px}.tile{font-size:9px;padding:8px 2px}.tile b{font-size:17px}.topline{padding:18px 20px}.screen{height:80vh;min-height:520px}.controls{bottom:42px;right:12px}.controls button{font-size:11px;padding:8px 10px}#camera{width:92px;height:68px;bottom:42px;left:12px}}
+</style>
+</head>
+<body>
+<header><div class="brand">∞ <span>DevOps</span> CITY</div><div class="status" id="status">● DEMO MODE · Camera off</div></header>
+<main>
+<section class="screen">
+ <div class="topline"><span>Interactive holographic interface</span><span>Plan · Build · Test · Deploy · Monitor</span></div>
+ <div class="content">
+  <div><h1 id="title">DevOps<br>City</h1><div class="sub" id="desc">A complete cloud-native ecosystem. Swipe your hand left or right to explore the city.</div><div class="tag" id="tag">GESTURE CONTROL READY</div></div>
+  <div class="visual"><div class="core"><div class="symbol" id="symbol">🏙️</div></div></div>
+ </div>
+ <div class="tiles" id="tiles"></div>
+</section>
+</main>
+<img id="camera" autoplay muted playsinline><div id="pointer"></div>
+<div class="controls"><button id="camBtn">Enable hand tracking</button><button id="prev">←</button><button id="next">→</button></div>
+<footer>Allow camera access · Hold your hand in view · Swipe left/right to change technology</footer>
+<script>
+const pages=[
+ {name:"DevOps City",icon:"🏙️",desc:"A complete cloud-native ecosystem connecting development and operations.",tag:"PLAN · BUILD · TEST · DEPLOY"},
+ {name:"Git & GitHub",icon:"🐙",desc:"Version control, branches, commits, pull requests and team collaboration.",tag:"VERSION CONTROL"},
+ {name:"CI/CD Pipeline",icon:"♾️",desc:"Automated workflow: source code → build → test → release → deploy.",tag:"CONTINUOUS INTEGRATION & DELIVERY"},
+ {name:"Docker",icon:"🐳",desc:"Package applications into portable containers and ship them consistently.",tag:"CONTAINERIZATION"},
+ {name:"Kubernetes",icon:"☸️",desc:"Orchestrate containers with deployments, services and auto-scaling.",tag:"CONTAINER ORCHESTRATION"},
+ {name:"Database",icon:"🗄️",desc:"Store, query and manage application data with SQL and NoSQL systems.",tag:"MYSQL · POSTGRESQL · MONGODB"},
+ {name:"Linux",icon:"🐧",desc:"The command-line foundation for servers, permissions, processes and networking.",tag:"SERVER OPERATIONS"},
+ {name:"Infrastructure",icon:"🏗️",desc:"Provision repeatable cloud infrastructure as code with Terraform.",tag:"INFRASTRUCTURE AS CODE"},
+ {name:"Monitoring",icon:"📊",desc:"Observe system health, metrics, logs and alerts with Prometheus and Grafana.",tag:"OBSERVABILITY"}
+];
+let index=0, lastX=null, lastSwipe=0;
+const $=id=>document.getElementById(id);
+function render(){let p=pages[index];$("title").innerHTML=p.name.replace(" ","<br>");$("desc").textContent=p.desc;$("tag").textContent=p.tag;$("symbol").textContent=p.icon;$("tiles").innerHTML=pages.map((x,i)=>`<div class="tile ${i===index?'active':''}" data-i="${i}"><b>${x.icon}</b>${x.name}</div>`).join("");document.querySelectorAll(".tile").forEach(el=>el.onclick=()=>{index=+el.dataset.i;render()})}
+function move(d){index=(index+d+pages.length)%pages.length;render()}
+$("next").onclick=()=>move(1);$("prev").onclick=()=>move(-1);render();
+async function startCamera(){
+ try{
+  const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",width:640,height:480},audio:false});
+  $("camera").srcObject=stream;$("camera").style.display="block";
+  $("status").textContent="● CAMERA ON · Loading hand tracking";
+  await loadHands();
+ }catch(e){$("status").textContent="Camera unavailable · use arrow buttons";alert("Camera access nahi mila. Browser permission allow karein, aur page HTTPS par kholein.");}
+}
+async function loadHands(){
+ const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js";document.head.appendChild(s);
+ await new Promise((res,rej)=>{s.onload=res;s.onerror=rej});
+ const c=document.createElement("script");c.src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js";document.head.appendChild(c);
+ await new Promise((res,rej)=>{c.onload=res;c.onerror=rej});
+ const hands=new Hands({locateFile:f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}`});
+ hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.65,minTrackingConfidence:.65});
+ hands.onResults(r=>{
+  if(!r.multiHandLandmarks||!r.multiHandLandmarks.length){lastX=null;return}
+  const x=r.multiHandLandmarks[0][8].x, y=r.multiHandLandmarks[0][8].y;
+  $("pointer").style.display="block";$("pointer").style.left=(1-x)*innerWidth+"px";$("pointer").style.top=y*innerHeight+"px";
+  if(lastX!==null&&Date.now()-lastSwipe>900){let dx=x-lastX;if(dx>.16){move(-1);lastSwipe=Date.now()}else if(dx<-.16){move(1);lastSwipe=Date.now()}}
+  lastX=x;
+ });
+ const cam=new Camera($("camera"),{onFrame:async()=>{await hands.send({image:$("camera")})},width:640,height:480});
+ cam.start();$("status").textContent="● HAND TRACKING ACTIVE · Swipe to navigate";
+}
+$("camBtn").onclick=startCamera;
+</script>
+</body>
+</html>
+

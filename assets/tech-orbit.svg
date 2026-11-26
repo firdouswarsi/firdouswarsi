@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="500">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="orbit-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Core Sun Gradient -->
+    <linearGradient id="core-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="node-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes spin-cw {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spin-ccw {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+    .orbit-1 { transform-origin: 250px 250px; animation: spin-cw 35s linear infinite; }
+    .orbit-2 { transform-origin: 250px 250px; animation: spin-ccw 50s linear infinite; }
+    .orbit-3 { transform-origin: 250px 250px; animation: spin-cw 65s linear infinite; }
+    .font-label { font-family: 'JetBrains Mono', 'Inter', monospace; font-size: 10px; font-weight: 700; fill: #f8fafc; }
+  </style>
+
+  <!-- Ambient Glow -->
+  <circle cx="250" cy="250" r="240" fill="url(#orbit-glow)"/>
+
+  <!-- Orbital Ring 1 (Inner - Primary Skills: Azure & Terraform) -->
+  <circle cx="250" cy="250" r="95" fill="none" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4,4" stroke-opacity="0.5"/>
+
+  <!-- Orbital Ring 2 (Middle - CI/CD & Operations) -->
+  <circle cx="250" cy="250" r="155" fill="none" stroke="#818cf8" stroke-width="1.2" stroke-dasharray="6,5" stroke-opacity="0.45"/>
+
+  <!-- Orbital Ring 3 (Outer - Containers, Security & Observability) -->
+  <circle cx="250" cy="250" r="215" fill="none" stroke="#a855f7" stroke-width="1.2" stroke-dasharray="8,6" stroke-opacity="0.4"/>
+
+  <!-- ═════════ CENTRAL DEVOPS CORE ═════════ -->
+  <circle cx="250" cy="250" r="42" fill="url(#core-grad)" filter="url(#node-glow)"/>
+  <circle cx="250" cy="250" r="48" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.8"/>
+  <text x="250" y="246" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="900" fill="#ffffff">
+    DEVOPS
+  </text>
+  <text x="250" y="262" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#e0f2fe">
+    CORE
+  </text>
+
+  <!-- ═════════ INNER ORBIT NODES (AZURE & TERRAFORM) ═════════ -->
+  <g class="orbit-1">
+    <!-- Node 1: Azure (at angle 45 deg, r=95 -> x=317, y=183) -->
+    <g transform="translate(317, 183)">
+      <circle cx="0" cy="0" r="22" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="12">☁️</text>
+    </g>
+
+    <!-- Node 2: Terraform (at angle 225 deg, r=95 -> x=183, y=317) -->
+    <g transform="translate(183, 317)">
+      <circle cx="0" cy="0" r="22" fill="#7e22ce" stroke="#c084fc" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="12">⚡</text>
+    </g>
+  </g>
+
+  <!-- ═════════ MIDDLE ORBIT NODES (CI/CD, GIT, JENKINS) ═════════ -->
+  <g class="orbit-2">
+    <!-- Node 3: Azure DevOps (Angle 0 deg, r=155 -> x=405, y=250) -->
+    <g transform="translate(405, 250)">
+      <circle cx="0" cy="0" r="19" fill="#0078d7" stroke="#60a5fa" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="11">🔄</text>
+    </g>
+
+    <!-- Node 4: Git (Angle 90 deg, r=155 -> x=250, y=405) -->
+    <g transform="translate(250, 405)">
+      <circle cx="0" cy="0" r="19" fill="#ea580c" stroke="#fb923c" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="11">🌿</text>
+    </g>
+
+    <!-- Node 5: Jenkins (Angle 180 deg, r=155 -> x=95, y=250) -->
+    <g transform="translate(95, 250)">
+      <circle cx="0" cy="0" r="19" fill="#b91c1c" stroke="#f87171" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="11">🏗️</text>
+    </g>
+
+    <!-- Node 6: CI/CD Pipelines (Angle 270 deg, r=155 -> x=250, y=95) -->
+    <g transform="translate(250, 95)">
+      <circle cx="0" cy="0" r="19" fill="#0d9488" stroke="#2dd4bf" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="11">🚀</text>
+    </g>
+  </g>
+
+  <!-- ═════════ OUTER ORBIT NODES (K8S, DOCKER, SECURITY, MONITORING) ═════════ -->
+  <g class="orbit-3">
+    <!-- Node 7: Kubernetes AKS (Angle 30 deg, r=215 -> x=436, y=142) -->
+    <g transform="translate(436, 142)">
+      <circle cx="0" cy="0" r="18" fill="#1d4ed8" stroke="#93c5fd" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="10">☸️</text>
+    </g>
+
+    <!-- Node 8: Docker (Angle 105 deg, r=215 -> x=194, y=458) -->
+    <g transform="translate(194, 458)">
+      <circle cx="0" cy="0" r="18" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="10">🐳</text>
+    </g>
+
+    <!-- Node 9: SonarQube & Trivy (Angle 195 deg, r=215 -> x=42, y=306) -->
+    <g transform="translate(42, 306)">
+      <circle cx="0" cy="0" r="18" fill="#0f766e" stroke="#00c7b7" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="10">🛡️</text>
+    </g>
+
+    <!-- Node 10: Azure Monitor (Angle 280 deg, r=215 -> x=213, y=38) -->
+    <g transform="translate(213, 38)">
+      <circle cx="0" cy="0" r="18" fill="#0369a1" stroke="#38bdf8" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="10">📡</text>
+    </g>
+
+    <!-- Node 11: Linux (Angle 340 deg, r=215 -> x=452, y=324) -->
+    <g transform="translate(452, 324)">
+      <circle cx="0" cy="0" r="18" fill="#ca8a04" stroke="#fde047" stroke-width="1.5" filter="url(#node-glow)"/>
+      <text x="0" y="4" text-anchor="middle" font-size="10">🐧</text>
+    </g>
+  </g>
+</svg>

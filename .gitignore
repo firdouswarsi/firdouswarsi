@@ -1,0 +1,14 @@
+# Ignore independent sub-repositories
+/azure-enterprise-landing-zone/
+/azure-secure-three-tier-app/
+/terraform-azuredevops-cicd/
+/azure-multi-environment-terraform/
+/azure-monitoring-disaster-recovery/
+
+# OS / Temporary files
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
+*.log
+
